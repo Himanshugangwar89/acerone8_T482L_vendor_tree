@@ -1,0 +1,28 @@
+on post-fs-data
+	chown system system /sys/devices/platform/battery_meter/battery_info
+	chown system system /sys/devices/platform/battery_meter/battery_flag
+	
+	chown system system /sys/class/leds/red/brightness
+	chown system system /sys/class/leds/green/brightness
+	chown system system /sys/class/leds//brightness
+	
+	chown system system /sys/devices/platform/odm/odm:elink_usbkeyboard/forbidden_status
+	
+	chown system system /sys/devices/platform/odm/odm:elink_agingtest/aginglight
+	
+	
+##MXC4005XC
+    chmod 0660 /dev/mxc4005xc
+    chown system system /dev/mxc4005xc
+
+#MXC4005
+    chmod 0777 /vendor/bin/memsicp
+    chown root root /vendor/bin/memsicp
+	
+service memsicp /vendor/bin/memsicp
+    oneshot    
+    user system
+    group system
+    class main
+	
+
